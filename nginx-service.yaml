@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+spec:
+  selector:
+    app: nginx
+  ports:
+    - protocol: TCP
+      port: 80          # nginx-service listen on this port
+
+      # nginx-service will forward to this port of Pod
+      # this will match containerPort in nginx-deployment
+      targetPort: 8080
