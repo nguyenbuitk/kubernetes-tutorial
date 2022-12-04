@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongodb-service
+spec:
+  # connect to pod through layer
+  selector:
+    app: mongodb
+  ports:
+    - protocol: TCP
+      port: 27020 # service port
+      targetPort: 27017 # container port or pod port
