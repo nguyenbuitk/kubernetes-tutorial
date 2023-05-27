@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: my-app-ingress
+spec:
+
+  rules:
+  # khi không có host field, nó sẽ hoạt động như một Ingress mặc định và bắt tất cả cho dịch vụ phụ trợ được chỉ định
+  - host: test-ingress.com
+    http:
+      paths:
+        - path: /banana
+          pathType: Prefix
+          backend:
+            service:
+              name: banana-service
+              port:
+                number: 5678
+        - path: /apple
+          pathType: Prefix
+          backend:
+            service:
+              name: apple-service
+              port:
+                number: 5678

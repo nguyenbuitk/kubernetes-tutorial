@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    app: banana
+  name: banana-app
+spec:
+  containers:
+  - image: hashicorp/http-echo
+    name: banana-app
+    args:
+      - "-text=hello from banana"
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    app: apple
+  name: apple-app
+spec:
+  containers:
+  - image: hashicorp/http-echo
+    name: banana-app
+    args:
+      - "-text=hello from apple"
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}

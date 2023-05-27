@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: banana-service
+  name: banana-service
+spec:
+  ports:
+  - name: 5678-5678
+    port: 5678
+    protocol: TCP
+    targetPort: 5678
+  selector:
+    app: banana
+  type: ClusterIP
+status:
+  loadBalancer: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: apple-service
+  name: apple-service
+spec:
+  ports:
+  - name: 5678-5678
+    port: 5678
+    protocol: TCP
+    targetPort: 5678
+  selector:
+    app: apple
+  type: ClusterIP
+status:
+  loadBalancer: {}
