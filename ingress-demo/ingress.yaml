@@ -3,7 +3,10 @@ kind: Ingress
 metadata:
   name: my-app-ingress
 spec:
-
+  tls:
+  - hosts:
+    - test-ingress.com
+    secretName: test-tls
   rules:
   # khi không có host field, nó sẽ hoạt động như một Ingress mặc định và bắt tất cả cho dịch vụ phụ trợ được chỉ định
   - host: test-ingress.com
